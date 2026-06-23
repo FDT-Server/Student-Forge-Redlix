@@ -159,17 +159,17 @@ export default function Footer() {
               <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">
                 Official Affiliations
               </span>
-              <div className="flex items-center justify-center gap-4 bg-white border border-slate-200/80 rounded-xl p-3 w-full max-w-[240px] shadow-sm">
+              <div className="flex items-center justify-center gap-6 bg-white border border-slate-200/80 rounded-xl p-3.5 w-full max-w-[280px] shadow-sm">
                 <img 
                   src="https://aartisto.com/wp-content/uploads/2020/11/msme1.png" 
                   alt="MSME Logo" 
-                  className="h-8 object-contain" 
+                  className="h-11 object-contain" 
                 />
-                <div className="h-6 w-[1px] bg-slate-200" />
+                <div className="h-8 w-[1px] bg-slate-200" />
                 <img 
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ministry_of_Corporate_Affairs_India.svg/1280px-Ministry_of_Corporate_Affairs_India.svg.png" 
                   alt="MCA Logo" 
-                  className="h-8 object-contain" 
+                  className="h-11 object-contain" 
                 />
               </div>
             </div>
