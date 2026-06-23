@@ -36,7 +36,15 @@ export default function Footer() {
                 Empowering next-gen innovators and bridging the gap between academic foundation and industry excellence.
               </p>
               <p className="text-xs text-slate-400">
-                Built by <span className="font-medium text-[#1a3646]">Redlix Studio</span>
+                Built by{' '}
+                <a 
+                  href="https://www.redlix.co.in" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="font-medium text-[#1a3646] underline hover:text-[#fbb03b] transition-colors"
+                >
+                  Redlix Studio
+                </a>
               </p>
             </div>
 
