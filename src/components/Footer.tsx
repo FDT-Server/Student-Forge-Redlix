@@ -31,10 +31,14 @@ export default function Footer() {
                 className="h-6 lg:h-7 object-contain opacity-90"
               />
             </div>
-            
-            <p className="text-sm text-slate-600 leading-relaxed font-light">
-              Empowering next-gen innovators and bridging the gap between academic foundation and industry excellence.
-            </p>
+            <div className="flex flex-col gap-2">
+              <p className="text-sm text-slate-600 leading-relaxed font-light">
+                Empowering next-gen innovators and bridging the gap between academic foundation and industry excellence.
+              </p>
+              <p className="text-xs text-slate-400">
+                Built by <span className="font-medium text-[#1a3646]">Redlix Studio</span>
+              </p>
+            </div>
 
             <div className="flex items-center gap-3 mt-2">
               <Link 
