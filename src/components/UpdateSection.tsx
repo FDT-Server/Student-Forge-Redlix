@@ -22,7 +22,7 @@ export default function UpdateSection() {
             A comprehensive portal by Student Forge designed to provide students with the Knowledge, mentorship, and Internship opportunities needed to excel in their professional journey.
           </p>
           <Link
-            href="https://platform.studentforge.in/intern/signup"
+            href="https://platform.studentforge.in"
             className="px-10 py-3 bg-[#2d414e] text-white rounded-full text-xs font-normal hover:bg-[#1a3646] transition-all"
           >
             Explore Now

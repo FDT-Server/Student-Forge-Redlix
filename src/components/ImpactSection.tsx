@@ -2,25 +2,40 @@
 
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
+import { useInView } from 'framer-motion';
 
 function Counter({ end, suffix = "", duration = 2000 }: { end: number, suffix?: string, duration?: number }) {
   const [count, setCount] = useState(0);
-  const countRef = useRef(null);
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   useEffect(() => {
+    if (!isInView) return;
+
     let startTime: number | null = null;
+    let animationFrame: number;
+
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
-      setCount(Math.floor(progress * end));
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(easeOut * end));
+
       if (progress < 1) {
-        requestAnimationFrame(animate);
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        setCount(end);
       }
     };
-    requestAnimationFrame(animate);
-  }, [end, duration]);
 
-  return <>{count.toLocaleString()}{suffix}</>;
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrame) cancelAnimationFrame(animationFrame);
+    };
+  }, [isInView, end, duration]);
+
+  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
 }
 
 export default function ImpactSection() {
