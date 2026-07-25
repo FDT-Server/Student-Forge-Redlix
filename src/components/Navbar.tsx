@@ -21,6 +21,7 @@ export default function Navbar() {
     { name: 'Universities / Institutions', href: '/institutions' },
     { name: 'Corporate', href: '/business' },
     { name: 'Events', href: '/events' },
+    { name: 'Careers', href: '/careers' },
     { name: 'Store', href: 'https://store.studentforge.in' },
   ];
 
