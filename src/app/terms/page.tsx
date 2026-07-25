@@ -1,14 +1,13 @@
 import { Metadata } from 'next';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
-import { FileCheck, Shield, Users, Briefcase, ShoppingBag, Scale, AlertCircle, Phone, Mail, MapPin } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Student Forge',
-  description: 'Review the Terms of Service and user agreement governing your use of Student Forge platforms, student portals, and career programs.',
+  title: 'Terms of Service | Student Forge Technologies Private Limited',
+  description: 'Terms of Service and User Agreement governing Student Forge Technologies Private Limited websites, student platforms, e-commerce, and recruitment services in compliance with Indian laws.',
   openGraph: {
-    title: 'Terms of Service | Student Forge',
-    description: 'User Agreement and Terms of Service for Student Forge web applications, student platform, and services.',
+    title: 'Terms of Service | Student Forge Technologies Private Limited',
+    description: 'Statutory User Agreement and Terms of Service for Student Forge Technologies Private Limited.',
     url: 'https://studentforge.in/terms',
     siteName: 'Student Forge',
     type: 'website',
@@ -21,189 +20,155 @@ export default function TermsPage() {
   const sections = [
     {
       id: "agreement",
-      title: "1. Acceptance of Terms",
-      icon: FileCheck,
+      title: "1. Acceptance of Terms & Legal Entity",
       content: (
         <>
           <p className="leading-relaxed mb-4">
-            These Terms of Service ("Terms") constitute a legally binding agreement between you ("User," "Student," "Partner," or "You") and <strong className="text-[#1a3646]">Student Forge</strong> ("we," "our," or "us"), an organization recognized under the <strong className="text-[#1a3646]">MSME</strong> and <strong className="text-[#1a3646]">Ministry of Corporate Affairs (MCA)</strong> frameworks in India.
+            These Terms of Service ("Terms" or "Agreement") constitute a legally binding contract between you ("User," "Student," "Recruiter," "Institution," or "You") and <strong>Student Forge Technologies Private Limited</strong> ("Company," "we," "us," or "our"), a company incorporated under the Companies Act, 2013, with its registered office in Telangana, India.
           </p>
           <p className="leading-relaxed mb-4">
-            By accessing or using our websites (<code className="bg-slate-100 px-1.5 py-0.5 rounded text-xs font-mono text-[#1a3646]">studentforge.in</code>), student portal (<code className="bg-slate-100 px-1.5 py-0.5 rounded text-xs font-mono text-[#1a3646]">platform.studentforge.in</code>), store (<code className="bg-slate-100 px-1.5 py-0.5 rounded text-xs font-mono text-[#1a3646]">store.studentforge.in</code>), or participating in our career initiatives, hackathons, and corporate programs, you agree to be bound by these Terms and our Privacy Policy.
+            This Agreement governs your access to and use of our primary website (<code>studentforge.in</code>), student platform (<code>platform.studentforge.in</code>), store portal (<code>store.studentforge.in</code>), job board, recruitment portals, and associated educational services (collectively, the "Platform").
           </p>
-          <p className="leading-relaxed text-xs text-slate-500">
-            If you do not agree to these Terms, you must immediately discontinue all use of our Platform and services.
+          <p className="leading-relaxed">
+            By accessing, registering, browsing, or using any part of the Platform, you acknowledge that you have read, understood, and agreed to be legally bound by this Agreement, executed pursuant to the provisions of the <strong>Indian Contract Act, 1872</strong>, the <strong>Information Technology Act, 2000</strong>, and the <strong>Consumer Protection (E-Commerce) Rules, 2020</strong>. If you do not agree to these Terms, you must refrain from using the Platform.
           </p>
         </>
       ),
     },
     {
       id: "eligibility-account",
-      title: "2. User Eligibility & Accounts",
-      icon: Users,
+      title: "2. Eligibility & Account Security",
       content: (
         <>
           <p className="leading-relaxed mb-4">
-            To register an account or participate in Student Forge programs, you must satisfy the following criteria:
+            Pursuant to Section 11 of the Indian Contract Act, 1872, you represent and warrant that you are competent to enter into a legally binding contract.
           </p>
-          <ul className="space-y-2 text-slate-600 text-sm list-disc pl-5 mb-4">
-            <li>Be at least 16 years of age or possess legal parental/guardian consent if under 18.</li>
-            <li>Provide true, accurate, current, and complete personal and academic information during registration or job applications.</li>
-            <li>Maintain the confidentiality of your account credentials and accept full responsibility for all activities that occur under your account.</li>
+          <ul className="list-disc pl-6 space-y-2 mb-4">
+            <li><strong>Age Eligibility:</strong> You must be at least 18 years of age, or if between 16 and 18 years of age, possess explicit consent from a parent or legal guardian who agrees to be bound by these Terms on your behalf.</li>
+            <li><strong>Accuracy of Information:</strong> You agree to provide true, accurate, current, and complete credentials, academic histories, resumes, and contact details during account registration or program application.</li>
+            <li><strong>Account Integrity & Confidentiality:</strong> You are solely responsible for maintaining the confidentiality of your login credentials and for all activities conducted under your account. You agree to notify Student Forge Technologies Private Limited immediately of any unauthorized account access.</li>
+            <li><strong>Single Account Policy:</strong> Users are prohibited from creating multiple accounts, submitting falsified educational credentials, or impersonating another person. Violation of account integrity shall result in immediate termination without notice.</li>
           </ul>
-          <div className="p-4 bg-amber-50 border border-amber-200/80 rounded-2xl text-xs text-amber-900 font-medium">
-            ⚠️ <strong>Account Integrity:</strong> Creation of duplicate accounts, submitting fraudulent academic credentials, or impersonating another individual will result in immediate suspension and permanent platform ban.
-          </div>
         </>
       ),
     },
     {
       id: "career-applications",
-      title: "3. Job & Internship Applications",
-      icon: Briefcase,
+      title: "3. Recruitment & Job Application Terms",
       content: (
         <>
           <p className="leading-relaxed mb-4">
-            Student Forge provides career acceleration tools and connects candidates with hiring partners, recruiters, and corporate organizations:
+            Student Forge Technologies Private Limited facilitates career acceleration, internship tracks, and employment opportunities connecting candidate students with participating corporate partners and recruiters:
           </p>
-          <div className="space-y-3 text-slate-600 text-sm mb-4">
-            <p>
-              • <strong className="text-[#1a3646]">Applicant Responsibility:</strong> You warrant that all resumes, experience statements, portfolio links, and skill assessments submitted through the Platform are genuine and accurate.
-            </p>
-            <p>
-              • <strong className="text-[#1a3646]">Platform Role:</strong> Student Forge acts as a facilitator connecting students with potential employers. While we actively vet listings, Student Forge does not guarantee employment or selection for any specific role.
-            </p>
-            <p>
-              • <strong className="text-[#1a3646]">Hiring Decisions:</strong> Ultimate hiring decisions, interview scheduling, compensation terms, and employment contracts rest solely between the applicant and the respective hiring partner.
-            </p>
-          </div>
+          <ul className="list-disc pl-6 space-y-2 mb-4">
+            <li><strong>Candidate Responsibility:</strong> Candidates warrant that all resumes, experience certificates, technical portfolios, GitHub repositories, and skill representations submitted through the Platform are accurate and genuine.</li>
+            <li><strong>Intermediary Status:</strong> Pursuant to Section 79 of the Information Technology Act, 2000, Student Forge Technologies Private Limited acts as an intermediary providing access to a communication system over which information provided by third parties is made available. We do not independently verify every claim made by recruiting entities or applicants.</li>
+            <li><strong>No Employment Guarantee:</strong> While the Company facilitates job matching and career preparation, we do not guarantee employment, selection, or specific compensation outcomes for any candidate. Selection and employment contracts remain exclusively between the applicant and the corporate employer.</li>
+          </ul>
         </>
       ),
     },
     {
       id: "intellectual-property",
       title: "4. Intellectual Property Rights",
-      icon: Shield,
       content: (
         <>
           <p className="leading-relaxed mb-4">
-            All content, graphics, logos, software, website designs, video materials, curriculum tracks, and trademarks displayed on the Platform are the exclusive property of Student Forge or its licensors.
+            All proprietary rights, title, and interest in and to the Platform, including but not limited to trade name "Student Forge," trademarks, service marks, platform design, software source code, databases, learning modules, curriculum content, graphics, and branding are the exclusive intellectual property of Student Forge Technologies Private Limited, protected under the <strong>Copyright Act, 1957</strong>, and the <strong>Trademarks Act, 1999</strong>.
           </p>
-          <ul className="space-y-2 text-slate-600 text-sm list-disc pl-5 mb-4">
-            <li>You are granted a limited, non-exclusive, non-transferable license to access platform resources for personal, non-commercial educational use.</li>
-            <li>You may not copy, modify, distribute, sell, reverse-engineer, or create derivative works from any platform content without prior written permission from Student Forge.</li>
+          <ul className="list-disc pl-6 space-y-2 mb-4">
+            <li><strong>Limited License:</strong> Subject to compliance with these Terms, Users are granted a limited, revocable, non-exclusive, non-transferable license to access and view platform content solely for personal, non-commercial educational purposes.</li>
+            <li><strong>Prohibited Uses:</strong> Users shall not copy, reproduce, modify, distribute, sell, license, reverse-engineer, decompile, or extract source code from any portion of the Platform without prior written authorization from Student Forge Technologies Private Limited.</li>
           </ul>
         </>
       ),
     },
     {
-      id: "store-payments",
-      title: "5. E-Commerce & Workshop Fees",
-      icon: ShoppingBag,
+      id: "ecommerce-payments",
+      title: "5. E-Commerce & Service Payments",
       content: (
         <>
           <p className="leading-relaxed mb-4">
-            For paid events, workshops, certification programs, or merchandise purchased via <code className="bg-slate-100 px-1.5 py-0.5 rounded text-xs font-mono text-[#1a3646]">store.studentforge.in</code>:
+            Transactions conducted via <code>store.studentforge.in</code> or paid workshop enrollments are governed under the Consumer Protection Act, 2019, and the Consumer Protection (E-Commerce) Rules, 2020:
           </p>
-          <ul className="space-y-2 text-slate-600 text-sm list-disc pl-5 mb-4">
-            <li><strong className="text-[#1a3646]">Pricing & Taxes:</strong> All prices are displayed in Indian Rupees (INR) and include applicable taxes unless specified otherwise.</li>
-            <li><strong className="text-[#1a3646]">Payment Gateways:</strong> Payments are processed via secure third-party payment gateways. Student Forge is not responsible for failed transactions caused by banking network errors.</li>
-            <li><strong className="text-[#1a3646]">Refunds & Cancellations:</strong> Refund requests for events or learning kits are governed by the specific cancellation terms communicated at the time of purchase.</li>
+          <ul className="list-disc pl-6 space-y-2 mb-4">
+            <li><strong>Pricing & Taxes:</strong> All prices displayed on our store or enrollment portals are listed in Indian Rupees (INR) and include applicable Goods and Services Tax (GST) unless explicitly stated otherwise.</li>
+            <li><strong>Payment Aggregation:</strong> Payments are processed through secure, RBI-authorized payment gateways. Student Forge Technologies Private Limited is not liable for transaction failures caused by intermediary banking networks or authorized payment gateways.</li>
+            <li><strong>Cancellations & Refunds:</strong> Refund requests for merchandise or fee-based training programs are subject to the specific refund and cancellation policy communicated during order checkout or program registration.</li>
           </ul>
         </>
       ),
     },
     {
-      id: "prohibited-activities",
-      title: "6. Prohibited Code of Conduct",
-      icon: AlertCircle,
+      id: "code-of-conduct",
+      title: "6. User Code of Conduct & Prohibited Actions",
       content: (
         <>
-          <p className="leading-relaxed mb-4"> Users are strictly prohibited from engaging in any of the following activities on the Platform: </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700 font-normal mb-4">
-            <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80">
-              ❌ Automated data scraping, bot access, or bulk harvesting of candidate/employer data.
-            </div>
-            <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80">
-              ❌ Uploading malicious code, viruses, trojans, or attempting unauthorized system access.
-            </div>
-            <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80">
-              ❌ Posting offensive, defamatory, harassing, or unlawful content in community forums or chat channels.
-            </div>
-            <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80">
-              ❌ Submitting fake job opportunities, spam messages, or unauthorized commercial promotions.
-            </div>
-          </div>
+          <p className="leading-relaxed mb-4">
+            In compliance with Rule 3(1)(b) of the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021, Users shall not host, display, upload, modify, publish, transmit, store, update, or share any information that:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 mb-4">
+            <li>Belongs to another person and to which the User does not have any right.</li>
+            <li>Is defamatory, obscene, pornographic, pedophilic, invasive of another's privacy, insulting, or harassing.</li>
+            <li>Deceives or misleads the addressee about the origin of the message or knowingly communicates false or misleading information.</li>
+            <li>Contains software viruses, trojan horses, or any computer code designed to interrupt, destroy, or limit the functionality of any computer resource.</li>
+            <li>Threatens the unity, integrity, defense, security, or sovereignty of India, friendly relations with foreign States, or public order.</li>
+            <li>Uses automated software, bots, scrapers, or crawlers to extract candidate data, employer records, or platform content.</li>
+          </ul>
         </>
       ),
     },
     {
       id: "limitation-liability",
-      title: "7. Disclaimer & Limitation of Liability",
-      icon: Scale,
+      title: "7. Disclaimer of Warranties & Limitation of Liability",
       content: (
         <>
           <p className="leading-relaxed mb-4">
-            The Platform and all associated services are provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, whether express or implied.
+            The Platform and all services are provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, whether express, implied, or statutory.
           </p>
           <p className="leading-relaxed mb-4">
-            To the maximum extent permitted by applicable Indian law, Student Forge, its directors, officers, employees, and affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or loss of profits/data arising out of or related to your use of the Platform.
+            To the maximum extent permitted by applicable Indian law, Student Forge Technologies Private Limited, its directors, officers, employees, agents, or affiliates shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, employment opportunities, or business interruption arising out of or related to your use of or inability to use the Platform.
           </p>
         </>
       ),
     },
     {
-      id: "governing-law",
+      id: "governing-law-jurisdiction",
       title: "8. Governing Law & Dispute Resolution",
-      icon: Scale,
       content: (
         <>
           <p className="leading-relaxed mb-4">
-            These Terms shall be governed by and construed in accordance with the laws of the Republic of India.
+            This Agreement and any dispute, controversy, or claim arising out of or in connection with it shall be governed by, interpreted, and construed in accordance with the laws of the Republic of India, without reference to its conflict-of-law principles.
           </p>
-          <p className="leading-relaxed mb-4">
-            In the event of any legal dispute, controversy, or claim arising under these Terms or platform usage, the parties agree that exclusive jurisdiction shall rest with the competent courts located in <strong className="text-[#1a3646]">Hyderabad, Telangana, India</strong>.
+          <p className="leading-relaxed">
+            The parties irrevocably agree that the courts located in <strong>Hyderabad, Telangana, India</strong>, shall have exclusive jurisdiction to settle any legal dispute or claim arising out of or in connection with these Terms or platform operations.
           </p>
         </>
       ),
     },
     {
-      id: "contact-terms",
-      title: "9. Contact Information",
-      icon: Mail,
+      id: "contact-legal",
+      title: "9. Contact & Statutory Notices",
       content: (
         <>
-          <p className="leading-relaxed mb-6">
-            For any queries or formal legal notices regarding these Terms of Service, please contact us:
+          <p className="leading-relaxed mb-4">
+            For formal legal notices, queries, or complaints regarding these Terms of Service, please contact Student Forge Technologies Private Limited at:
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-50 border border-slate-200/80 p-6 rounded-3xl">
-            <div className="flex flex-col gap-2">
-              <span className="text-xs font-bold text-[#1a3646] uppercase tracking-wider flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#fbb03b]" /> Headquarters
-              </span>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Student Forge HQ<br />
-                HF2R+CCV, Devender Colony, Kompally, Hyderabad, 500100
-              </p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-xs font-bold text-[#1a3646] uppercase tracking-wider flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#6fb9a5]" /> Regional Office
-              </span>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Student Forge Regional Office<br />
-                H.no 10-11-860/5, Bypass Road, Raparthi Nagar, Khammam, 507003
-              </p>
-            </div>
-            <div className="md:col-span-2 pt-4 border-t border-slate-200 flex flex-wrap gap-6 items-center text-xs font-semibold text-[#1a3646]">
-              <a href="mailto:info@studentforge.in" className="flex items-center gap-2 hover:text-[#fbb03b] transition-colors">
-                <Mail className="w-4 h-4 text-[#6fb9a5]" /> info@studentforge.in
-              </a>
-              <a href="tel:+916304218064" className="flex items-center gap-2 hover:text-[#fbb03b] transition-colors">
-                <Phone className="w-4 h-4 text-[#fbb03b]" /> +91 6304218064
-              </a>
-            </div>
-          </div>
+          <p className="font-semibold text-[#1a3646] mb-1">Student Forge Technologies Private Limited</p>
+          <p className="leading-relaxed mb-1">Email: info@studentforge.in</p>
+          <p className="leading-relaxed mb-4">Telephone: +91 6304218064</p>
+
+          <p className="font-semibold text-[#1a3646] mb-1">Headquarters (Hyderabad)</p>
+          <p className="leading-relaxed mb-4">
+            Student Forge Technologies Private Limited<br />
+            HF2R+CCV, Devender Colony, Kompally, Hyderabad, Telangana - 500100, India.
+          </p>
+
+          <p className="font-semibold text-[#1a3646] mb-1">Regional Office (Khammam)</p>
+          <p className="leading-relaxed">
+            Student Forge Technologies Private Limited<br />
+            H.no 10-11-860/5, Bypass Road, Raparthi Nagar, Khammam, Telangana - 507003, India.
+          </p>
         </>
       ),
     },
@@ -211,29 +176,23 @@ export default function TermsPage() {
 
   return (
     <main className="flex-1 bg-white font-sans">
-      {/* Hero Banner Header */}
-      <section className="relative pt-20 pb-16 px-6 bg-[#fbb03b] border-b border-[#1a3646]/10">
-        <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex-1 text-left">
-            <div className="border border-[#1a3646]/20 text-[#1a3646] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-6 inline-flex items-center gap-2">
-              <FileCheck className="w-3.5 h-3.5 text-[#1a3646]" /> Legal Agreement
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1a3646] mb-4 tracking-tight leading-tight">
-              Terms of <span className="text-white">Service</span>.
-            </h1>
-
-            <p className="text-base text-[#1a3646] opacity-85 max-w-xl leading-relaxed mb-4 font-normal">
-              These terms govern your access to Student Forge platforms, candidate portals, mentorship cohorts, and services.
-            </p>
-
-            <div className="inline-flex items-center gap-2 text-xs font-medium text-[#1a3646]/70 bg-white/40 px-3 py-1 rounded-lg">
-              <span>Last Updated: {lastUpdated}</span>
-            </div>
+      {/* Header Banner */}
+      <section className="pt-20 pb-16 px-6 bg-[#fbb03b] border-b border-[#1a3646]/10">
+        <div className="w-full max-w-[1200px] mx-auto text-left">
+          <div className="border border-[#1a3646]/20 text-[#1a3646] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4 inline-block">
+            Statutory Agreement
           </div>
 
-          <div className="hidden md:flex items-center justify-center p-6 bg-white/20 backdrop-blur-md rounded-3xl border border-white/30">
-            <FileCheck className="w-24 h-24 text-[#1a3646]" />
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1a3646] mb-3 tracking-tight leading-tight">
+            Terms of Service
+          </h1>
+
+          <p className="text-base text-[#1a3646] opacity-90 max-w-2xl leading-relaxed mb-3">
+            Student Forge Technologies Private Limited — User Agreement & Governance Framework
+          </p>
+
+          <div className="text-xs font-medium text-[#1a3646]/80">
+            Last Updated: {lastUpdated}
           </div>
         </div>
       </section>
@@ -243,31 +202,29 @@ export default function TermsPage() {
         <div className="w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
           {/* Left Sidebar - Quick Navigation */}
-          <aside className="lg:col-span-4 lg:sticky lg:top-28 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm flex flex-col gap-3">
+          <aside className="lg:col-span-4 lg:sticky lg:top-28 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col gap-2">
             <h3 className="text-xs font-bold uppercase tracking-widest text-[#1a3646]/60 mb-2 px-2">
-              Terms Sections
+              Document Index
             </h3>
             <nav className="flex flex-col gap-1">
               {sections.map((sec) => (
                 <a
                   key={sec.id}
                   href={`#${sec.id}`}
-                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-[#1a3646] transition-colors"
+                  className="px-3 py-2 rounded-lg text-xs font-medium text-slate-700 hover:bg-slate-100 hover:text-[#1a3646] transition-colors"
                 >
-                  <sec.icon className="w-4 h-4 text-[#fbb03b] shrink-0" />
-                  <span>{sec.title}</span>
+                  {sec.title}
                 </a>
               ))}
             </nav>
 
-            <div className="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-2">
-              <span className="text-[11px] text-slate-500 font-medium px-2">Related Document</span>
+            <div className="mt-4 pt-4 border-t border-slate-200 flex flex-col gap-2">
+              <span className="text-[11px] text-slate-500 font-medium px-2">Related Statutory Policy</span>
               <Link
                 href="/privacy"
-                className="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-[#1a3646] bg-amber-50 hover:bg-amber-100/80 border border-amber-200/60 transition-colors"
+                className="px-3 py-2 rounded-lg text-xs font-semibold text-[#1a3646] bg-amber-50 hover:bg-amber-100/80 border border-amber-200/60 transition-colors"
               >
-                <span>Privacy Policy</span>
-                <span>→</span>
+                Privacy Policy →
               </Link>
             </div>
           </aside>
@@ -278,17 +235,12 @@ export default function TermsPage() {
               <article
                 key={sec.id}
                 id={sec.id}
-                className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/80 shadow-sm scroll-mt-28"
+                className="bg-white p-8 sm:p-10 rounded-2xl border border-slate-200/80 shadow-sm scroll-mt-28"
               >
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
-                  <div className="w-10 h-10 rounded-2xl bg-[#fbb03b]/15 flex items-center justify-center text-[#1a3646]">
-                    <sec.icon className="w-5 h-5 text-[#1a3646]" />
-                  </div>
-                  <h2 className="text-xl sm:text-2xl font-semibold text-[#1a3646] tracking-tight">
-                    {sec.title}
-                  </h2>
-                </div>
-                <div className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                <h2 className="text-xl sm:text-2xl font-semibold text-[#1a3646] mb-6 pb-3 border-b border-slate-200">
+                  {sec.title}
+                </h2>
+                <div className="text-slate-700 text-sm sm:text-base leading-relaxed">
                   {sec.content}
                 </div>
               </article>
