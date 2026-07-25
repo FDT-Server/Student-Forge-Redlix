@@ -185,8 +185,8 @@ export default function Footer() {
         <div className="pt-6 border-t border-slate-300/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#1a3646]/60 font-medium">
           <p>© 2026 Student Forge. All Rights Reserved.</p>
           <div className="flex items-center gap-6">
-            <Link href="#" className="hover:text-[#1a3646] transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-[#1a3646] transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="hover:text-[#1a3646] transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-[#1a3646] transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
