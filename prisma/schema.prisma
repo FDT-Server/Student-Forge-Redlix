@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Job {
+  id                  String   @id @default(cuid())
+  
+  // Section 1: Basic Information
+  title               String
+  department          String
+  team                String?
+  employmentType      String   // Full-time, Part-time, Contract, Internship
+  workplaceType       String   // On-site, Remote, Hybrid
+  location            String
+  openings            Int      @default(1)
+
+  // Section 2: Job Description
+  shortDescription    String   @db.Text
+  detailedDescription String   @db.Text
+  responsibilities    String   @db.Text
+  requiredSkills      String   @db.Text
+  preferredSkills     String?  @db.Text
+
+  // Section 3: Eligibility
+  qualification       String
+  experience          String
+  languages           String
+
+  // Section 4: Compensation
+  salary              String
+  benefits            String?  @db.Text
+
+  // Section 5: Application
+  deadline            String?
+  joiningDate         String?
+  resumeRequired      Boolean  @default(true)
+  portfolioRequired   Boolean  @default(false)
+  customQuestions     String?  @db.Text
+
+  // Section 6: Publishing
+  bannerImage         String?
+  featured            Boolean  @default(false)
+  status              String   @default("Published") // Draft, Published, Closed
+
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
+
+model JobApplication {
+  id              String   @id @default(cuid())
+  jobId           String
+  jobTitle        String
+  fullName        String
+  email           String
+  phone           String
+  college         String
+  yearOfStudy     String
+  portfolioUrl    String?
+  resumeName      String?
+  resumeLink      String?
+  inCollegeClub   Boolean  @default(false)
+  clubName        String?
+  clubPosition    String?
+  coverNote       String?  @db.Text
+  createdAt       DateTime @default(now())
+}

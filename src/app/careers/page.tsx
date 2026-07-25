@@ -2,18 +2,13 @@ import { Metadata } from 'next';
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from 'next/image';
+import { prisma } from "@/lib/prisma";
 import {
   Briefcase,
-  Users,
-  Sparkles,
-  Rocket,
   ArrowRight,
   MapPin,
   Clock,
-  CheckCircle2,
-  Heart,
-  Globe,
-  Zap,
+  Building2,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -21,11 +16,26 @@ export const metadata: Metadata = {
   description: 'Join Student Forge and help build the next generation of technical and entrepreneurial talent.',
 };
 
-export default function CareersPage() {
+export const revalidate = 0; // Dynamic server rendering for live job openings
+
+export default async function CareersPage() {
+  let openJobs: any[] = [];
+  try {
+    openJobs = await prisma.job.findMany({
+      where: { status: "Published" },
+      orderBy: [
+        { featured: "desc" },
+        { createdAt: "desc" },
+      ],
+    });
+  } catch (err) {
+    console.error("Error loading open jobs for careers page:", err);
+  }
+
   return (
     <main className="flex-1 bg-white font-sans">
 
-      {/* ─── HERO HEADER SECTION (Matching About/Startup Style) ────── */}
+      {/* ─── HERO HEADER SECTION ─────────────────────────────────── */}
       <section className="relative pt-20 pb-20 px-6 bg-[#fbb03b] border-b border-[#1a3646]/10">
         <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
           {/* Left: Copy */}
@@ -53,7 +63,7 @@ export default function CareersPage() {
             </div>
           </div>
 
-          {/* Right: SVG Illustration (Constrained height) */}
+          {/* Right: Illustration */}
           <div className="flex-1 relative hidden lg:flex justify-end items-center">
             <div className="relative w-[450px] h-[290px] flex items-center justify-end">
               <img
@@ -66,7 +76,7 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* ─── WHY WORK WITH US (Clean Grid) ───────────────────────── */}
+      {/* ─── WHY WORK WITH US ────────────────────────────────────── */}
       <section className="py-20 px-6 bg-slate-50/50 flex justify-center">
         <div className="w-full max-w-[1200px]">
           <div className="flex flex-col items-center text-center mb-14 max-w-2xl mx-auto">
@@ -105,15 +115,13 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* ─── LIFE AT STUDENT FORGE (4-Image Bento Left + Matter Right) ─ */}
+      {/* ─── LIFE AT STUDENT FORGE ───────────────────────────────── */}
       <section className="py-20 px-6 bg-white flex justify-center border-t border-slate-100">
         <div className="w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-          {/* Left Column: 4-Image Bento Grid (Staggered Flex Columns) */}
+          {/* Bento Grid Left */}
           <div className="lg:col-span-6 grid grid-cols-2 gap-4 items-start">
-            {/* Column 1 (Left) */}
             <div className="flex flex-col gap-4">
-              {/* Card 1 */}
               <div className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm group bg-slate-100 w-full">
                 <Image
                   src="https://ik.imagekit.io/dypkhqxip/WhatsApp%20Image%202026-07-25%20at%2023.25.43.jpeg"
@@ -125,7 +133,6 @@ export default function CareersPage() {
                 />
               </div>
 
-              {/* Card 3 */}
               <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm group bg-slate-100 w-full">
                 <Image
                   src="https://ik.imagekit.io/dypkhqxip/WhatsApp%20Image%202026-07-25%20at%2023.23.15.jpeg"
@@ -138,9 +145,7 @@ export default function CareersPage() {
               </div>
             </div>
 
-            {/* Column 2 (Right - Staggered Offset) */}
             <div className="flex flex-col gap-4 pt-6 sm:pt-8">
-              {/* Card 2 */}
               <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm group bg-slate-100 w-full">
                 <Image
                   src="https://ik.imagekit.io/dypkhqxip/WhatsApp%20Image%202026-07-25%20at%2023.23.35.jpeg"
@@ -152,7 +157,6 @@ export default function CareersPage() {
                 />
               </div>
 
-              {/* Card 4 */}
               <div className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm group bg-slate-100 w-full">
                 <Image
                   src="https://ik.imagekit.io/dypkhqxip/WhatsApp%20Image%202026-07-25%20at%2023.22.57.jpeg"
@@ -166,7 +170,7 @@ export default function CareersPage() {
             </div>
           </div>
 
-          {/* Right Column: Matter / Text Content */}
+          {/* Copy Right */}
           <div className="lg:col-span-6 flex flex-col gap-6 text-left">
             <span className="text-xs font-medium uppercase tracking-widest text-[#1a3646]/60 bg-slate-100 px-4 py-1.5 rounded-full w-fit">
               Life at Student Forge
@@ -177,7 +181,7 @@ export default function CareersPage() {
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
-              At Student Forge, we believe that great work happens when passionate individuals are empowered with autonomy and a clear purpose. We work closely with students, colleges, and startups across the country to build real-world technical and entrepreneurial impact.
+              At Student Forge, we believe that great work happens when passionate individuals are empowered with autonomy and a clear purpose.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
@@ -198,10 +202,10 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* ─── OPEN POSITIONS ──────────────────────────────────────── */}
+      {/* ─── OPEN POSITIONS SECTION ──────────────────────────────── */}
       <section id="openings" className="py-20 px-6 bg-slate-50/50 flex justify-center border-t border-slate-100">
         <div className="w-full max-w-[1200px]">
-          <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
+          <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-medium uppercase tracking-widest text-[#1a3646]/60 bg-white px-4 py-1.5 rounded-full border border-slate-200/80 mb-4">
               Current Opportunities
             </span>
@@ -209,9 +213,67 @@ export default function CareersPage() {
               Open Positions
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-              Positions and active hiring drives will be listed here soon. Have a proposal or want to join our talent pool early? Reach out to us directly.
+              Explore current open roles and apply to join our growing team across technical, design, and ecosystem initiatives.
             </p>
           </div>
+
+          {/* Job List / Cards Grid */}
+          {openJobs.length === 0 ? (
+            <div className="bg-white border border-slate-200/80 rounded-3xl p-12 text-center max-w-xl mx-auto">
+              <Briefcase className="w-10 h-10 text-slate-400 mx-auto mb-3" />
+              <h3 className="text-lg font-medium text-[#1a3646]">No Active Positions Right Now</h3>
+              <p className="text-sm text-slate-500 mt-2">
+                Check back soon or send us a general application below to be considered for upcoming roles!
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {openJobs.map((job) => (
+                <Link
+                  key={job.id}
+                  href={`/careers/${job.id}`}
+                  className="bg-white border border-slate-200/80 hover:border-[#1a3646]/40 rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-md group relative overflow-hidden"
+                >
+                  {job.featured && (
+                    <div className="absolute top-4 right-4 bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-bold px-3 py-1 rounded-full">
+                      Featured
+                    </div>
+                  )}
+
+                  <div>
+                    <div className="flex items-center gap-2 text-xs font-semibold text-[#1a3646]/70 uppercase tracking-wider mb-2">
+                      <Building2 className="w-4 h-4 text-[#fbb03b]" />
+                      <span>{job.department}</span>
+                      {job.team && <span>• {job.team}</span>}
+                    </div>
+
+                    <h3 className="text-xl font-bold text-[#1a3646] group-hover:text-amber-600 transition-colors mb-3">
+                      {job.title}
+                    </h3>
+
+                    <p className="text-sm text-slate-600 leading-relaxed line-clamp-2 mb-6">
+                      {job.shortDescription}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4 text-xs font-medium text-slate-500">
+                    <div className="flex items-center gap-4">
+                      <span className="flex items-center gap-1 text-slate-700">
+                        <MapPin className="w-3.5 h-3.5 text-slate-400" /> {job.location}
+                      </span>
+                      <span className="flex items-center gap-1 text-slate-700">
+                        <Clock className="w-3.5 h-3.5 text-slate-400" /> {job.employmentType} ({job.workplaceType})
+                      </span>
+                    </div>
+
+                    <span className="text-[#1a3646] font-bold group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                      View Details & Apply <ArrowRight className="w-3.5 h-3.5 text-[#fbb03b]" />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
