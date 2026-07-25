@@ -27,15 +27,15 @@ export default function StartupPage() {
   return (
     <main className="flex-1 bg-white text-[#1a3646] font-sans">
 
-      {/* ─── HERO SECTION ─────────────────────────────────────────── */}
-      <section className="relative pt-32 pb-0 px-6 overflow-hidden bg-[#1a3646]">
+      {/* ─── HERO HEADER SECTION (YELLOW BG) ───────────────────────── */}
+      <section className="relative pt-32 pb-0 px-6 overflow-hidden bg-[#fbb03b]">
         {/* Ambient glow top-right */}
-        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-[#fbb03b] opacity-[0.06] blur-[160px] rounded-full translate-x-1/2 -translate-y-1/4 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-white opacity-[0.15] blur-[160px] rounded-full translate-x-1/2 -translate-y-1/4 pointer-events-none" />
         {/* Subtle dot grid overlay */}
         <div
-          className="absolute inset-0 opacity-[0.035] pointer-events-none"
+          className="absolute inset-0 opacity-[0.05] pointer-events-none"
           style={{
-            backgroundImage: 'radial-gradient(circle, #fbb03b 1px, transparent 1px)',
+            backgroundImage: 'radial-gradient(circle, #1a3646 1px, transparent 1px)',
             backgroundSize: '48px 48px',
           }}
         />
@@ -45,20 +45,20 @@ export default function StartupPage() {
           {/* ── Left: Copy ── */}
           <div className="flex-1 text-left pt-6 pb-16">
             {/* Pill badge */}
-            <div className="inline-flex items-center gap-2 border border-[#fbb03b]/40 bg-[#fbb03b]/10 text-[#fbb03b] px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest mb-7">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#fbb03b] animate-pulse" />
+            <div className="inline-flex items-center gap-2 border border-[#1a3646]/30 bg-[#1a3646]/10 text-[#1a3646] px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-widest mb-7">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1a3646] animate-pulse" />
               For Startups
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-5xl font-bold mb-5 tracking-tight leading-[1.12] text-white">
+            <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-5xl font-semibold mb-5 tracking-tight leading-[1.12] text-[#1a3646]">
               From Idea to Impact,
               <br />
-              <span className="text-[#fbb03b]">We Build Startups</span>
+              <span>We Build Startups</span>
               <br />
               That Change the World.
             </h1>
 
-            <p className="text-sm lg:text-base text-white/60 max-w-md mb-9 leading-relaxed">
+            <p className="text-sm lg:text-base text-[#1a3646]/80 max-w-md mb-9 leading-relaxed font-normal">
               Student Forge helps startups build, grow and scale with mentorship,
               tech support, talent and exposure.
             </p>
@@ -66,13 +66,13 @@ export default function StartupPage() {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#fbb03b] text-[#1a3646] rounded-full font-bold text-sm hover:bg-[#e09e35] hover:scale-105 transition-all shadow-lg shadow-[#fbb03b]/20"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#1a3646] text-white rounded-full font-semibold text-sm hover:bg-[#2d414e] hover:scale-105 transition-all shadow-lg shadow-[#1a3646]/20"
               >
                 Collaborate With Us
               </Link>
               <Link
                 href="#services"
-                className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/20 text-white rounded-full font-bold text-sm hover:bg-white/5 hover:border-white/40 transition-all"
+                className="inline-flex items-center gap-2 px-7 py-3.5 border border-[#1a3646]/30 text-[#1a3646] rounded-full font-semibold text-sm hover:bg-[#1a3646]/10 hover:border-[#1a3646]/50 transition-all"
               >
                 Explore Services <ArrowRight size={14} />
               </Link>
@@ -81,8 +81,6 @@ export default function StartupPage() {
 
           {/* ── Right: Hero Image ── */}
           <div className="flex-1 relative hidden lg:flex justify-center items-end self-end">
-            {/* Glow behind image */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-60 h-40 bg-[#fbb03b] blur-[80px] opacity-20 rounded-full pointer-events-none" />
             <div className="relative w-[420px] h-[480px] rounded-t-3xl overflow-hidden shadow-2xl">
               <Image
                 src="/startup-hero.png"
@@ -92,24 +90,22 @@ export default function StartupPage() {
                 className="object-cover object-top"
                 priority
               />
-              {/* Bottom fade into section bg */}
-              <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1a3646] to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#fbb03b] to-transparent" />
             </div>
           </div>
         </div>
 
-        {/* Smooth bottom fade — no white gap */}
-        <div className="h-10 bg-gradient-to-b from-[#1a3646] to-[#1a3646]" />
+        <div className="h-10 bg-[#fbb03b]" />
       </section>
 
       {/* ─── FEATURES ROW (WHAT WE DO) ────────────────────────────── */}
       <section className="py-14 px-6 bg-[#f8f9fa] border-y border-[#1a3646]/10">
         <div className="w-full max-w-[1400px] mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-3 text-[#1a3646]">
+            <h2 className="text-3xl lg:text-4xl font-semibold mb-3 text-[#1a3646]">
               How We Help Startups
             </h2>
-            <p className="text-[#1a3646]/50 text-base max-w-xl mx-auto">
+            <p className="text-[#1a3646]/60 text-base max-w-xl mx-auto">
               End-to-end support to turn your ideas into successful ventures.
             </p>
           </div>
@@ -129,7 +125,7 @@ export default function StartupPage() {
                 <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-2xl bg-[#1a3646] flex items-center justify-center text-[#fbb03b] mb-1 group-hover:scale-110 group-hover:bg-[#fbb03b] group-hover:text-[#1a3646] transition-all shadow-sm shrink-0">
                   <feature.icon size={26} strokeWidth={1.5} />
                 </div>
-                <h3 className="font-bold text-[15px] lg:text-base text-[#1a3646] leading-tight">{feature.title}</h3>
+                <h3 className="font-semibold text-[15px] lg:text-base text-[#1a3646] leading-tight">{feature.title}</h3>
                 <p className="text-[12px] lg:text-sm text-[#1a3646]/55 leading-relaxed">{feature.desc}</p>
               </div>
             ))}
@@ -141,17 +137,16 @@ export default function StartupPage() {
       <section id="services" className="py-24 px-6 bg-white">
         <div className="w-full max-w-[1100px] mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-3 text-[#1a3646]">
+            <h2 className="text-3xl lg:text-4xl font-semibold mb-3 text-[#1a3646]">
               How We Support Startups
             </h2>
-            <p className="text-[#1a3646]/50 text-base max-w-xl mx-auto">
+            <p className="text-[#1a3646]/60 text-base max-w-xl mx-auto">
               End-to-end support at every stage of your startup journey.
             </p>
           </div>
 
           {/* Steps */}
           <div className="relative grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Dashed connecting line (desktop) — positioned at centre of step circles */}
             <div
               className="hidden md:block absolute left-[56px] right-[56px] h-0"
               style={{ top: '28px' }}
@@ -172,14 +167,13 @@ export default function StartupPage() {
               { step: '04', label: 'CONNECT', icon: Network, desc: 'Connect with investors, partners and opportunities.' },
             ].map((phase, i) => (
               <div key={i} className="relative flex flex-col gap-4 group">
-                {/* Step number circle */}
-                <div className="w-14 h-14 rounded-full bg-white border-2 border-[#fbb03b] text-[#fbb03b] flex items-center justify-center font-bold text-sm relative z-10 shadow-md group-hover:bg-[#fbb03b] group-hover:text-white transition-all">
+                <div className="w-14 h-14 rounded-full bg-white border-2 border-[#fbb03b] text-[#1a3646] flex items-center justify-center font-semibold text-sm relative z-10 shadow-md group-hover:bg-[#fbb03b] group-hover:text-white transition-all">
                   {phase.step}
                 </div>
                 <div className="text-[#fbb03b] mt-3">
                   <phase.icon size={28} strokeWidth={1.5} className="opacity-75 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h4 className="text-base font-bold text-[#1a3646] uppercase tracking-wider">{phase.label}</h4>
+                <h4 className="text-base font-semibold text-[#1a3646] uppercase tracking-wider">{phase.label}</h4>
                 <p className="text-sm text-[#1a3646]/55 leading-relaxed pr-2">{phase.desc}</p>
               </div>
             ))}
@@ -191,7 +185,7 @@ export default function StartupPage() {
       <section className="py-24 px-6 bg-[#1a3646]">
         <div className="w-full max-w-[1100px] mx-auto">
           <div className="text-center mb-14">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-[#fbb03b]">
               What You Get With Student Forge
             </h2>
           </div>
@@ -213,7 +207,7 @@ export default function StartupPage() {
                   <benefit.icon size={24} strokeWidth={1.5} />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <h3 className="text-base font-bold text-white">{benefit.title}</h3>
+                  <h3 className="text-base font-semibold text-white">{benefit.title}</h3>
                   <p className="text-sm text-white/55 leading-relaxed">{benefit.desc}</p>
                 </div>
               </div>
@@ -226,7 +220,7 @@ export default function StartupPage() {
       <section className="py-24 px-6 bg-[#f8f9fa]">
         <div className="w-full max-w-[1100px] mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl lg:text-3xl font-bold text-[#1a3646] mb-2">
+            <h2 className="text-2xl lg:text-3xl font-semibold text-[#1a3646] mb-2">
               Startups Guided by Student Forge
             </h2>
             <p className="text-sm text-[#1a3646]/50">Growing together with the next generation of founders.</p>
@@ -252,7 +246,7 @@ export default function StartupPage() {
                   <startup.icon size={20} strokeWidth={1.5} />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-bold text-sm text-[#1a3646]">{startup.name}</span>
+                  <h3 className="font-semibold text-sm text-[#1a3646]">{startup.name}</h3>
                   <span className="text-[11px] text-[#1a3646]/45">{startup.cat}</span>
                 </div>
               </div>
@@ -271,7 +265,7 @@ export default function StartupPage() {
 
             {/* Text */}
             <div className="relative z-10 flex-1">
-              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 tracking-tight leading-tight">
+              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-semibold text-[#fbb03b] mb-4 tracking-tight leading-tight">
                 Have an Idea?{' '}
                 <br className="hidden sm:block" />
                 Let&apos;s Build It Together.
@@ -281,7 +275,7 @@ export default function StartupPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#fbb03b] text-[#1a3646] rounded-full font-bold text-sm hover:bg-[#e09e35] hover:scale-105 transition-all shadow-lg shadow-[#fbb03b]/20"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#fbb03b] text-[#1a3646] rounded-full font-semibold text-sm hover:bg-[#e09e35] hover:scale-105 transition-all shadow-lg shadow-[#fbb03b]/20"
               >
                 Collaborate With Us <ArrowRight size={16} />
               </Link>
