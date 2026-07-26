@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import Image from 'next/image';
 import { prisma } from "@/lib/prisma";
 import {
   Briefcase,
@@ -117,88 +116,32 @@ export default async function CareersPage() {
 
       {/* ─── LIFE AT STUDENT FORGE ───────────────────────────────── */}
       <section className="py-20 px-6 bg-white flex justify-center border-t border-slate-100">
-        <div className="w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="w-full max-w-[1200px] flex flex-col gap-8 items-center text-center">
+          <span className="text-xs font-medium uppercase tracking-widest text-[#1a3646]/60 bg-slate-100 px-4 py-1.5 rounded-full w-fit">
+            Life at Student Forge
+          </span>
 
-          {/* Bento Grid Left */}
-          <div className="lg:col-span-6 grid grid-cols-2 gap-4 items-start">
-            <div className="flex flex-col gap-4">
-              <div className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm group bg-slate-100 w-full">
-                <Image
-                  src="https://ik.imagekit.io/dypkhqxip/WhatsApp%20Image%202026-07-25%20at%2023.25.43.jpeg"
-                  alt="Life at Student Forge 1"
-                  fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  unoptimized
-                />
-              </div>
+          <h2 className="text-3xl sm:text-4xl font-normal text-[#1a3646] tracking-tight leading-tight max-w-3xl">
+            A Culture Driven by Passion, Innovation & Freedom.
+          </h2>
 
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm group bg-slate-100 w-full">
-                <Image
-                  src="https://ik.imagekit.io/dypkhqxip/WhatsApp%20Image%202026-07-25%20at%2023.23.15.jpeg"
-                  alt="Life at Student Forge 3"
-                  fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  unoptimized
-                />
-              </div>
-            </div>
+          <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl">
+            At Student Forge, we believe that great work happens when passionate individuals are empowered with autonomy and a clear purpose.
+          </p>
 
-            <div className="flex flex-col gap-4 pt-6 sm:pt-8">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm group bg-slate-100 w-full">
-                <Image
-                  src="https://ik.imagekit.io/dypkhqxip/WhatsApp%20Image%202026-07-25%20at%2023.23.35.jpeg"
-                  alt="Life at Student Forge 2"
-                  fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  unoptimized
-                />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full pt-4 text-left">
+            {[
+              { title: 'Collaborative Space', desc: 'Work alongside founders, designers, and engineers.' },
+              { title: 'Continuous Growth', desc: 'Personal learning budgets and direct mentorship.' },
+              { title: 'National Exposure', desc: 'Lead events, hackathons, and institutional programs.' },
+              { title: 'Flexible Environment', desc: 'Focus on outcomes and ownership rather than hours.' },
+            ].map((item, i) => (
+              <div key={i} className="p-6 rounded-2xl bg-slate-50 border border-slate-200/60 flex flex-col justify-between">
+                <h3 className="font-medium text-base text-[#1a3646] mb-2">{item.title}</h3>
+                <p className="text-xs sm:text-sm text-slate-500 font-normal leading-relaxed">{item.desc}</p>
               </div>
-
-              <div className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm group bg-slate-100 w-full">
-                <Image
-                  src="https://ik.imagekit.io/dypkhqxip/WhatsApp%20Image%202026-07-25%20at%2023.22.57.jpeg"
-                  alt="Life at Student Forge 4"
-                  fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  unoptimized
-                />
-              </div>
-            </div>
+            ))}
           </div>
-
-          {/* Copy Right */}
-          <div className="lg:col-span-6 flex flex-col gap-6 text-left">
-            <span className="text-xs font-medium uppercase tracking-widest text-[#1a3646]/60 bg-slate-100 px-4 py-1.5 rounded-full w-fit">
-              Life at Student Forge
-            </span>
-
-            <h2 className="text-3xl sm:text-4xl font-normal text-[#1a3646] tracking-tight leading-tight">
-              A Culture Driven by Passion, Innovation & Freedom.
-            </h2>
-
-            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
-              At Student Forge, we believe that great work happens when passionate individuals are empowered with autonomy and a clear purpose.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              {[
-                { title: 'Collaborative Space', desc: 'Work alongside founders, designers, and engineers.' },
-                { title: 'Continuous Growth', desc: 'Personal learning budgets and direct mentorship.' },
-                { title: 'National Exposure', desc: 'Lead events, hackathons, and institutional programs.' },
-                { title: 'Flexible Environment', desc: 'Focus on outcomes and ownership rather than hours.' },
-              ].map((item, i) => (
-                <div key={i} className="p-4 rounded-2xl bg-slate-50 border border-slate-200/60">
-                  <h3 className="font-medium text-sm text-[#1a3646] mb-1">{item.title}</h3>
-                  <p className="text-xs text-slate-500 font-normal">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
         </div>
       </section>
 
