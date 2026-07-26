@@ -35,9 +35,10 @@ interface AdminDashboardClientProps {
 
 export default function AdminDashboardClient({ adminEmail }: AdminDashboardClientProps) {
   const [loggingOut, setLoggingOut] = useState(false);
-  const [viewMode, setViewMode] = useState<"list" | "create">("list");
+  const [viewMode, setViewMode] = useState<"list" | "create" | "contact">("list");
   const [jobs, setJobs] = useState<any[]>([]);
   const [applications, setApplications] = useState<any[]>([]);
+  const [contactSubmissions, setContactSubmissions] = useState<any[]>([]);
   const [loadingData, setLoadingData] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
@@ -89,16 +90,19 @@ export default function AdminDashboardClient({ adminEmail }: AdminDashboardClien
   const fetchData = async () => {
     setLoadingData(true);
     try {
-      const [jobsRes, appsRes] = await Promise.all([
+      const [jobsRes, appsRes, contactRes] = await Promise.all([
         fetch("/api/jobs"),
         fetch("/api/applications"),
+        fetch("/api/contact"),
       ]);
 
       const jobsData = await jobsRes.json();
       const appsData = await appsRes.json();
+      const contactData = await contactRes.json();
 
       if (jobsData.jobs) setJobs(jobsData.jobs);
       if (appsData.applications) setApplications(appsData.applications);
+      if (contactData.submissions) setContactSubmissions(contactData.submissions);
     } catch (err) {
       console.error("Failed to load dashboard data", err);
     } finally {
@@ -234,19 +238,49 @@ export default function AdminDashboardClient({ adminEmail }: AdminDashboardClien
             <button
               onClick={() => {
                 setMessage(null);
-                setViewMode(viewMode === "list" ? "create" : "list");
+                setViewMode("list");
               }}
-              className="px-4 py-2 bg-[#1a3646] hover:bg-[#112430] text-white font-bold text-xs rounded-xl flex items-center gap-2 shadow-md transition-all"
+              className={`px-4 py-2 font-bold text-xs rounded-xl flex items-center gap-2 transition-all ${
+                viewMode === "list"
+                  ? "bg-[#1a3646] text-white shadow-md"
+                  : "bg-white/40 text-[#1a3646] hover:bg-white/80"
+              }`}
             >
-              {viewMode === "list" ? (
+              <Briefcase className="w-4 h-4 text-[#fbb03b]" />
+              <span>Jobs ({jobs.length})</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setMessage(null);
+                setViewMode("contact");
+              }}
+              className={`px-4 py-2 font-bold text-xs rounded-xl flex items-center gap-2 transition-all ${
+                viewMode === "contact"
+                  ? "bg-[#1a3646] text-white shadow-md"
+                  : "bg-white/40 text-[#1a3646] hover:bg-white/80"
+              }`}
+            >
+              <Mail className="w-4 h-4 text-[#fbb03b]" />
+              <span>Inquiries ({contactSubmissions.length})</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setMessage(null);
+                setViewMode(viewMode === "create" ? "list" : "create");
+              }}
+              className="px-4 py-2 bg-white text-[#1a3646] hover:bg-slate-50 font-bold text-xs rounded-xl flex items-center gap-2 shadow-md transition-all border border-[#1a3646]/20"
+            >
+              {viewMode === "create" ? (
                 <>
-                  <Plus className="w-4 h-4 text-[#fbb03b]" />
-                  <span>Post New Job</span>
+                  <Briefcase className="w-4 h-4 text-[#1a3646]" />
+                  <span>View Jobs</span>
                 </>
               ) : (
                 <>
-                  <Briefcase className="w-4 h-4 text-[#fbb03b]" />
-                  <span>View All Positions ({jobs.length})</span>
+                  <Plus className="w-4 h-4 text-[#1a3646]" />
+                  <span>Post Job</span>
                 </>
               )}
             </button>
@@ -285,10 +319,13 @@ export default function AdminDashboardClient({ adminEmail }: AdminDashboardClien
         )}
 
         {/* OVERALL METRICS CARDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div
+            onClick={() => setViewMode("list")}
+            className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between cursor-pointer hover:border-[#1a3646]/40 transition-all"
+          >
             <div>
-              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Active Positions</p>
+              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Active Positions</p>
               <h2 className="text-3xl font-extrabold text-[#1a3646] mt-1">{jobs.length}</h2>
             </div>
             <div className="p-3 bg-[#1a3646]/10 text-[#1a3646] rounded-xl">
@@ -296,9 +333,12 @@ export default function AdminDashboardClient({ adminEmail }: AdminDashboardClien
             </div>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div
+            onClick={() => setViewMode("list")}
+            className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between cursor-pointer hover:border-emerald-300 transition-all"
+          >
             <div>
-              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Applications Received</p>
+              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Job Applications</p>
               <h2 className="text-3xl font-extrabold text-emerald-600 mt-1">{applications.length}</h2>
             </div>
             <div className="p-3 bg-emerald-100 text-emerald-700 rounded-xl">
@@ -306,7 +346,23 @@ export default function AdminDashboardClient({ adminEmail }: AdminDashboardClien
             </div>
           </div>
 
-          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div
+            onClick={() => setViewMode("contact")}
+            className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between cursor-pointer hover:border-blue-300 transition-all"
+          >
+            <div>
+              <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Contact Inquiries</p>
+              <h2 className="text-3xl font-extrabold text-blue-600 mt-1">{contactSubmissions.length}</h2>
+            </div>
+            <div className="p-3 bg-blue-100 text-blue-700 rounded-xl">
+              <Mail className="w-6 h-6" />
+            </div>
+          </div>
+
+          <div
+            onClick={() => setViewMode("list")}
+            className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between cursor-pointer hover:border-amber-300 transition-all"
+          >
             <div>
               <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Featured Openings</p>
               <h2 className="text-3xl font-extrabold text-amber-600 mt-1">
@@ -1091,6 +1147,101 @@ export default function AdminDashboardClient({ adminEmail }: AdminDashboardClien
               </button>
             </div>
           </form>
+        )}
+
+        {/* VIEW 3: CONTACT SUBMISSIONS & INQUIRIES */}
+        {viewMode === "contact" && (
+          <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+              <div>
+                <h2 className="text-lg font-bold text-[#1a3646] flex items-center gap-2">
+                  <Mail className="w-5 h-5 text-[#fbb03b]" />
+                  Contact Form Submissions ({contactSubmissions.length})
+                </h2>
+                <p className="text-xs text-slate-500 font-normal">
+                  View and manage incoming inquiries sent via the Contact Us form.
+                </p>
+              </div>
+            </div>
+
+            {loadingData ? (
+              <div className="py-12 text-center text-slate-400 font-medium space-y-2">
+                <Loader2 className="w-8 h-8 animate-spin mx-auto text-[#1a3646]" />
+                <p className="text-sm">Loading contact inquiries...</p>
+              </div>
+            ) : contactSubmissions.length === 0 ? (
+              <div className="py-12 text-center text-slate-500 font-medium space-y-3">
+                <Mail className="w-10 h-10 text-slate-300 mx-auto" />
+                <p className="text-base font-bold text-slate-700">No contact inquiries received yet.</p>
+                <p className="text-xs text-slate-500 max-w-sm mx-auto">
+                  Messages submitted through the /contact page will appear here.
+                </p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {contactSubmissions.map((submission) => (
+                  <div
+                    key={submission.id}
+                    className="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-4 hover:border-[#1a3646]/30 transition-all flex flex-col justify-between"
+                  >
+                    <div className="space-y-3">
+                      <div className="flex items-start justify-between gap-2 border-b border-slate-100 pb-3">
+                        <div>
+                          <h3 className="font-bold text-base text-[#1a3646]">
+                            {submission.name}
+                          </h3>
+                          <span className="text-[11px] text-slate-400 font-normal block mt-0.5">
+                            {new Date(submission.createdAt).toLocaleDateString("en-IN", {
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            })}
+                          </span>
+                        </div>
+
+                        <span className="px-3 py-1 rounded-full bg-[#fbb03b]/20 text-[#1a3646] text-xs font-bold shrink-0">
+                          {submission.category}
+                        </span>
+                      </div>
+
+                      <div className="space-y-2 text-xs font-normal text-slate-700">
+                        <div className="flex items-center gap-2">
+                          <Mail className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                          <a href={`mailto:${submission.email}`} className="text-[#1a3646] font-medium hover:underline truncate">
+                            {submission.email}
+                          </a>
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                          <Phone className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                          <a href={`tel:${submission.phone}`} className="text-[#1a3646] font-medium hover:underline">
+                            {submission.phone}
+                          </a>
+                        </div>
+                      </div>
+
+                      <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/70 text-xs text-slate-700 leading-relaxed space-y-1">
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Message:</span>
+                        <p className="whitespace-pre-line text-slate-800 font-normal">{submission.message}</p>
+                      </div>
+                    </div>
+
+                    <div className="pt-3 border-t border-slate-100 flex items-center gap-2 justify-end">
+                      <a
+                        href={`mailto:${submission.email}?subject=Re: ${encodeURIComponent(submission.category)} inquiry on Student Forge`}
+                        className="px-3.5 py-1.5 rounded-xl bg-[#1a3646] hover:bg-[#112430] text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-2xs"
+                      >
+                        <Mail className="w-3.5 h-3.5 text-[#fbb03b]" />
+                        <span>Reply via Email</span>
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         )}
       </main>
     </div>

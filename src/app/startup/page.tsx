@@ -47,7 +47,7 @@ export default function StartupPage() {
 
             <div className="flex flex-wrap items-center justify-start gap-4">
               <Link
-                href="/contact"
+                href="/contact?category=Startup"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#1a3646] text-white rounded-full font-medium text-sm hover:bg-[#2d414e] transition-all shadow-md"
               >
                 Collaborate With Us
@@ -212,7 +212,7 @@ export default function StartupPage() {
                 Bring your idea. We&apos;ll help you validate, build, launch, and grow it.
               </p>
               <Link
-                href="/contact"
+                href="/contact?category=Startup"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[#fbb03b] text-[#1a3646] rounded-full font-medium text-sm hover:bg-[#e09e35] transition-all shadow-md"
               >
                 Collaborate With Us <ArrowRight size={16} />

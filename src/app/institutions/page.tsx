@@ -52,7 +52,7 @@ export default function InstitutionsPage() {
 
             <div className="flex flex-wrap items-center justify-start gap-4">
               <Link
-                href="https://platform.studentforge.in"
+                href="/contact?category=Institution"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#1a3646] text-white rounded-full font-medium text-sm hover:bg-[#2d414e] transition-all shadow-md"
               >
                 Partner With Us
@@ -260,7 +260,7 @@ export default function InstitutionsPage() {
                 Partner with Student Forge to empower your campus with industry-relevant skills, events, and career opportunities.
               </p>
               <Link
-                href="https://platform.studentforge.in"
+                href="/contact?category=Institution"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[#fbb03b] text-[#1a3646] rounded-full font-medium text-sm hover:bg-[#e09e35] transition-all shadow-md"
               >
                 Partner With Us <ArrowRight size={16} />
