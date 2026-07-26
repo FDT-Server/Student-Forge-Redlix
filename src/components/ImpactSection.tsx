@@ -59,11 +59,11 @@ export default function ImpactSection() {
         {/* Row 1, Box 1 - Orange Metric */}
         <div className="lg:col-span-1 bg-[#fbb03b] rounded-[32px] p-10 flex flex-col items-start justify-start text-[#1a3646]">
           <span className="text-7xl font-normal mb-8">
-            <Counter end={1500} suffix="+" />
+            <Counter end={3500} suffix="+" />
           </span>
-          <h3 className="text-xl font-normal mb-4">Students Reached Online</h3>
+          <h3 className="text-xl font-normal mb-4">Students Reached</h3>
           <p className="text-sm font-normal opacity-80 leading-relaxed">
-            In 2025, our online initiatives reached over 1500 individuals with precise, accessible, and compelling information.
+            Our initiatives reached over 3500 students with precise, accessible, and compelling information.
           </p>
         </div>
 
@@ -80,33 +80,33 @@ export default function ImpactSection() {
         {/* Row 2, Box 3 - Teal Metric */}
         <div className="bg-[#6fb9a5] rounded-[32px] p-10 flex flex-col items-start justify-start text-white">
           <span className="text-7xl font-normal mb-8">
-            <Counter end={30} suffix="+" />
+            <Counter end={25} suffix="+" />
           </span>
           <h3 className="text-xl font-normal mb-4">Mentorship Sessions</h3>
           <p className="text-sm font-normal opacity-80 leading-relaxed">
-            In 2025, Student Forge led over 30 in-person and virtual mentorship programs covering key topics.
+            Student Forge led over 25+ in-person and virtual mentorship programs covering key topics.
           </p>
         </div>
 
         {/* Row 2, Box 4 - Aqua Metric */}
         <div className="bg-[#8ecfcb] rounded-[32px] p-10 flex flex-col items-start justify-start text-[#1a3646]">
           <span className="text-7xl font-normal mb-8">
-            <Counter end={100} suffix="+" />
+            <Counter end={450} suffix="+" />
           </span>
           <h3 className="text-xl font-normal mb-4">Projects Completed</h3>
           <p className="text-sm font-normal opacity-80 leading-relaxed">
-            Over 100 industry-level projects successfully conceptualized and delivered by our interns across various technical and business domains.
+            Over 450+ industry-level projects successfully conceptualized and delivered by our interns across various technical and business domains.
           </p>
         </div>
 
         {/* Row 2, Box 5 - Dark Slate Metric */}
         <div className="bg-[#2d414e] rounded-[32px] p-10 flex flex-col items-start justify-start text-white">
           <span className="text-7xl font-normal mb-8">
-            <Counter end={100} suffix="+" />
+            <Counter end={250} suffix="+" />
           </span>
           <h3 className="text-xl font-normal mb-4">Internships</h3>
           <p className="text-sm font-normal opacity-80 leading-relaxed">
-            In 2025, Student Forge provided 100+ internship opportunities to students across various technical and business domains.
+            Student Forge provided 250+ internship opportunities to students across various technical and business domains.
           </p>
         </div>
       </div>
